@@ -1,0 +1,150 @@
+﻿node.exe : (node:2064) 
+ExperimentalWarning: 
+CommonJS module 
+C:\Program Files\nodejs
+\node_modules\npm\node_
+modules\debug\src\node.
+js is loading ES 
+Module C:\Program Files
+\nodejs\node_modules\np
+m\node_modules\supports
+-color\index.js using 
+require().
+At C:\Program Files\nod
+ejs\npx.ps1:29 char:3
++   & $NODE_EXE 
+$NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: ((node:2064) E   
+ xp...sing require(    
+).:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+Support for loading ES 
+Module in require() is 
+an experimental 
+feature and might 
+change at any time
+(Use `node 
+--trace-warnings ...` 
+to show where the 
+warning was created)
+[36mvite v7.3.1 [32mbuilding client environment for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 1826 modules transformed.
+[31mΓ£ù[39m Build 
+failed in 2.90s
+[31merror during 
+build:
+[31msrc/components/Nav
+bar.jsx (5:20): 
+"ArrowRightRight" is 
+not exported by "node_m
+odules/lucide-react/dis
+t/esm/lucide-react.js",
+ imported by "src/compo
+nents/Navbar.jsx".[31m
+file: [36mC:/Users/918
+16/OneDrive/Pictures/Sc
+reenshots/Desktop/BP/fr
+ontend/src/components/N
+avbar.jsx:5:20[31m
+[33m
+3: import { 
+ThemeContext } from '..
+/context/ThemeContext';
+4: import { Link, 
+useNavigate, 
+useLocation } from 
+'react-router-dom';
+5: import { Moon, Sun, 
+ArrowRightRight } from 
+'lucide-react';
+                       
+^
+6: 
+7: const Navbar = () 
+=> {
+[31m
+    at getRollupError (
+file:///C:/Users/91816/
+OneDrive/Pictures/Scree
+nshots/Desktop/BP/front
+end/node_modules/rollup
+/dist/es/shared/parseAs
+t.js:402:41)
+    at error (file:///C
+:/Users/91816/OneDrive/
+Pictures/Screenshots/De
+sktop/BP/frontend/node_
+modules/rollup/dist/es/
+shared/parseAst.js:398:
+42)
+    at Module.error (fi
+le:///C:/Users/91816/On
+eDrive/Pictures/Screens
+hots/Desktop/BP/fronten
+d/node_modules/rollup/d
+ist/es/shared/node-entr
+y.js:17040:16)
+    at 
+Module.traceVariable (f
+ile:///C:/Users/91816/O
+neDrive/Pictures/Screen
+shots/Desktop/BP/fronte
+nd/node_modules/rollup/
+dist/es/shared/node-ent
+ry.js:17452:29)
+    at ModuleScope.find
+Variable (file:///C:/Us
+ers/91816/OneDrive/Pict
+ures/Screenshots/Deskto
+p/BP/frontend/node_modu
+les/rollup/dist/es/shar
+ed/node-entry.js:15070:
+39)
+    at ReturnValueScope
+.findVariable (file:///
+C:/Users/91816/OneDrive
+/Pictures/Screenshots/D
+esktop/BP/frontend/node
+_modules/rollup/dist/es
+/shared/node-entry.js:5
+673:38)
+    at FunctionBodyScop
+e.findVariable (file://
+/C:/Users/91816/OneDriv
+e/Pictures/Screenshots/
+Desktop/BP/frontend/nod
+e_modules/rollup/dist/e
+s/shared/node-entry.js:
+5673:38)
+    at Identifier.bind 
+(file:///C:/Users/91816
+/OneDrive/Pictures/Scre
+enshots/Desktop/BP/fron
+tend/node_modules/rollu
+p/dist/es/shared/node-e
+ntry.js:5447:40)
+    at 
+CallExpression.bind (fi
+le:///C:/Users/91816/On
+eDrive/Pictures/Screens
+hots/Desktop/BP/fronten
+d/node_modules/rollup/d
+ist/es/shared/node-entr
+y.js:2825:28)
+    at 
+CallExpression.bind (fi
+le:///C:/Users/91816/On
+eDrive/Pictures/Screens
+hots/Desktop/BP/fronten
+d/node_modules/rollup/d
+ist/es/shared/node-entr
+y.js:12179:15)[39m

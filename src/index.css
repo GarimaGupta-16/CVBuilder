@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Primary Background - Deep Indigo */
+  --color-brand-bg: #161022;
+  /* Secondary Background - Midnight Navy (used for cards/sidebar) */
+  --color-brand-surface: #0A0812;
+  
+  /* Primary Colors */
+  --color-brand-400: #818CF8;
+  --color-brand-500: #6366F1;
+  --color-brand-600: #4F46E5;
+
+  /* Accent Colors */
+  --color-accent-purple: #A855F7;
+  --color-accent-cyan: #00F0FF;
+  --color-accent-gold: #FFB800;
+  
+  /* Neutral Text Colors */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #E2E8F0;
+  --color-text-muted: #94A3B8;
+}
+
+/* Custom base styles */
+@layer base {
+  body {
+    /* Set the default dark theme permanently as per Figma */
+    @apply bg-brand-bg text-text-primary antialiased;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .glass {
+    @apply bg-brand-surface/80 backdrop-blur-md border border-white/10 shadow-xl;
+  }
+  
+  .glass-card {
+    @apply bg-brand-surface border border-white/5 shadow-2xl rounded-2xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-400 to-accent-purple;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-brand-500 to-accent-purple text-white font-semibold rounded-full px-6 py-2.5 shadow-lg shadow-brand-500/20 hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all;
+  }
+
+  .btn-secondary {
+    @apply bg-white/5 border border-white/10 text-white font-medium rounded-xl px-6 py-2.5 hover:bg-white/10 transition-colors;
+  }
+}
+
+/* Animations included in Tailwind CSS v4 */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-600;
+}

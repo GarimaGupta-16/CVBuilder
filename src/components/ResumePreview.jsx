@@ -1,0 +1,56 @@
+import React, { lazy, Suspense } from 'react';
+import { LayoutTemplate } from 'lucide-react';
+
+// We will build dynamic templates in src/templates
+const MinimalTemplate = lazy(() => import('../templates/MinimalTemplate'));
+const ModernTemplate = lazy(() => import('../templates/ModernTemplate'));
+const ProfessionalTemplate = lazy(() => import('../templates/ProfessionalTemplate'));
+const CreativeTemplate = lazy(() => import('../templates/CreativeTemplate'));
+
+const ResumePreview = ({ resumeData, templateId, setTemplateId }) => {
+  
+  const renderTemplate = () => {
+    switch (templateId) {
+      case 'creative':
+        return <CreativeTemplate data={resumeData} />;
+      case 'professional':
+        return <ProfessionalTemplate data={resumeData} />;
+      case 'modern':
+        return <ModernTemplate data={resumeData} />;
+      case 'minimal':
+      default:
+        return <MinimalTemplate data={resumeData} />;
+    }
+  };
+
+  return (
+    <div className="flex flex-col h-full w-full max-w-[800px]">
+      <div className="mb-4 flex gap-2">
+        {['minimal', 'modern', 'professional', 'creative'].map((id) => (
+          <button
+            key={id}
+            onClick={() => setTemplateId(id)}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+              templateId === id 
+                ? 'bg-blue-600 text-white shadow' 
+                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+            }`}
+          >
+            {id.charAt(0).toUpperCase() + id.slice(1)}
+          </button>
+        ))}
+      </div>
+
+      <div 
+        id="resume-preview" 
+        className="w-full bg-white shadow-2xl origin-top mx-auto overflow-y-auto print:shadow-none print:m-0 print:p-0 min-h-[1056px] text-black shrink-0 relative"
+      >
+        <Suspense fallback={<div className="flex items-center justify-center p-20 text-gray-400"><LayoutTemplate className="animate-spin w-8 h-8 mr-3"/> Loading template...</div>}>
+          {renderTemplate()}
+        </Suspense>
+      </div>
+    </div>
+  );
+};
+
+export default ResumePreview;
