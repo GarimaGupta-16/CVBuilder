@@ -53,13 +53,13 @@ const Navbar = () => {
             )}
           </div>
           
-          <button 
+          {/* <button 
             onClick={toggleTheme}
             className="p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             aria-label="Toggle Dark Mode"
           >
             {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </button>
+          </button> */}
 
           <div className="border-l border-gray-200 dark:border-gray-700 h-6 mx-2 hidden sm:block"></div>
           

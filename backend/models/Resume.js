@@ -7,6 +7,7 @@ const resumeSchema = new mongoose.Schema({
     required: true
   },
   templateId: {
+    
     type: String,
     default: 'minimal'
   },
