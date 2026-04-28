@@ -24,7 +24,7 @@ const ATSAnalyzer = () => {
         resumeText,
         jobDescription
       }, {
-        headers: { Authorization: `Bearer ${token}` }
+        //headers: { Authorization: `Bearer ${token}` }
       });
       setResults(data);
     } catch (err) {
