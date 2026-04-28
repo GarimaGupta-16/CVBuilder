@@ -40,3 +40,34 @@
 .read-the-docs {
   color: #888;
 }
+
+/* ===== PRINT STYLES FOR PDF EXPORT ===== */
+@media print {
+  /* Hide everything */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show only resume content */
+  #resume-content,
+  #resume-content * {
+    visibility: visible;
+  }
+
+  /* Position resume at top-left corner */
+  #resume-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  /* Remove page margins */
+  @page {
+    margin: 0;
+    size: A4;
+  }
+}

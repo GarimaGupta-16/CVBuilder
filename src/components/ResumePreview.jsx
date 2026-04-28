@@ -1,15 +1,29 @@
-import React, { lazy, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LayoutTemplate } from 'lucide-react';
 
-// We will build dynamic templates in src/templates
-const MinimalTemplate = lazy(() => import('../templates/MinimalTemplate'));
-const ModernTemplate = lazy(() => import('../templates/ModernTemplate'));
-const ProfessionalTemplate = lazy(() => import('../templates/ProfessionalTemplate'));
-const CreativeTemplate = lazy(() => import('../templates/CreativeTemplate'));
+// Import templates directly (not lazy-loaded) for better PDF capture
+import MinimalTemplate from '../templates/MinimalTemplate';
+import ModernTemplate from '../templates/ModernTemplate';
+import ProfessionalTemplate from '../templates/ProfessionalTemplate';
+import CreativeTemplate from '../templates/CreativeTemplate';
+import HarvardTemplate from '../templates/HarvardTemplate';
+import TechTemplate from '../templates/TechTemplate';
 
 const ResumePreview = ({ resumeData, templateId, setTemplateId }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  
+  useEffect(() => {
+    // Simulate template loading
+    setIsLoading(true);
+    const timer = setTimeout(() => setIsLoading(false), 100);
+    return () => clearTimeout(timer);
+  }, [templateId]);
   
   const renderTemplate = () => {
+    if (isLoading) {
+      return <div className="flex items-center justify-center p-20 text-gray-400"><LayoutTemplate className="animate-spin w-8 h-8 mr-3"/> Loading template...</div>;
+    }
+    
     switch (templateId) {
       case 'creative':
         return <CreativeTemplate data={resumeData} />;
@@ -17,6 +31,10 @@ const ResumePreview = ({ resumeData, templateId, setTemplateId }) => {
         return <ProfessionalTemplate data={resumeData} />;
       case 'modern':
         return <ModernTemplate data={resumeData} />;
+      case 'harvard':
+        return <HarvardTemplate data={resumeData} />;
+      case 'tech':
+        return <TechTemplate data={resumeData} />;
       case 'minimal':
       default:
         return <MinimalTemplate data={resumeData} />;
@@ -25,8 +43,8 @@ const ResumePreview = ({ resumeData, templateId, setTemplateId }) => {
 
   return (
     <div className="flex flex-col h-full w-full max-w-[800px]">
-      <div className="mb-4 flex gap-2">
-        {['minimal', 'modern', 'professional', 'creative'].map((id) => (
+      <div className="mb-4 flex flex-wrap gap-2 print:hidden">
+        {['minimal', 'modern', 'professional', 'creative', 'harvard', 'tech'].map((id) => (
           <button
             key={id}
             onClick={() => setTemplateId(id)}
@@ -45,9 +63,9 @@ const ResumePreview = ({ resumeData, templateId, setTemplateId }) => {
         id="resume-preview" 
         className="w-full bg-white shadow-2xl origin-top mx-auto overflow-y-auto print:shadow-none print:m-0 print:p-0 min-h-[1056px] text-black shrink-0 relative"
       >
-        <Suspense fallback={<div className="flex items-center justify-center p-20 text-gray-400"><LayoutTemplate className="animate-spin w-8 h-8 mr-3"/> Loading template...</div>}>
+        <div id="resume-content" className="w-full h-full bg-white">
           {renderTemplate()}
-        </Suspense>
+        </div>
       </div>
     </div>
   );
