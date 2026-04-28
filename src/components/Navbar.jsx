@@ -32,7 +32,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="glass sticky top-0 z-50 transition-colors duration-300">
+    <nav className="glass sticky top-0 z-50 transition-colors duration-300 print:hidden">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <Link to="/" className="text-2xl font-black text-gradient flex items-center gap-2 group">
           <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform">
